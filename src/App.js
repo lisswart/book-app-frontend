@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  // const herokuURL = "https://book-app-heroku-000.herokuapp.com"
-  const localURL = "http://localhost:3000";
+  const herokuURL = "https://book-app-heroku-000.herokuapp.com"
+  // const localURL = "http://localhost:3000";
 
   const [users, setUsers] = useState([]);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch(`${localURL}/users`)
+    fetch(`${herokuURL}/users`)
       .then(r => r.json())
       .then(usersArr => {
         console.log(usersArr);
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch(`${localURL}/books`)
+    fetch(`${herokuURL}/books`)
       .then(r => r.json())
       .then(booksArr => {
         console.log(booksArr);
