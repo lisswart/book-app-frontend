@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 
-function App() {
+function Test() {
   const herokuURL = "https://book-app-heroku-000.herokuapp.com"
   // const localURL = "http://localhost:3000";
 
@@ -71,4 +71,4 @@ function App() {
   );
 }
 
-export default App;
+export default Test;
