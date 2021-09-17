@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import AddBookForm from './AddBookForm';
 import DisplayBooksPanel from './DisplayBooksPanel';
 
-function MyBookshelf() {
-  const baseURL = "https://book-app-heroku-backend.herokuapp.com/";
+function MyBookshelf({ user }) {
+  // const baseURL = "https://book-app-heroku-backend.herokuapp.com/";
+  const localURL = "http://localhost:3000";
 
   const [ books, setBooks ] = useState([]);
   const [ isAddBook, setIsAddBook ] = useState(false);
 
   useEffect(() => {
-    fetch(`${baseURL}books`)
+    fetch(`${localURL}/books`)
       .then(r => r.json())
       .then(books => {
         console.log(books);
@@ -41,7 +42,9 @@ function MyBookshelf() {
                 setBooks={setBooks} />
         : <DisplayBooksPanel
                 books={books}
-                setBooks={setBooks} />
+                setBooks={setBooks}
+                user={user
+                } />
 
       }
     </div>

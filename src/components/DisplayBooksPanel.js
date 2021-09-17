@@ -1,14 +1,16 @@
 
 
-function DisplayBooksPanel({ books, setBooks }) {
+function DisplayBooksPanel({ books, setBooks, user }) {
 
   return (
-    <div className={books}>
+    <div className="books-panel">
       {books.map(book => {
         return (
-          <div key={book.id}>
-            <p>{book.title}</p>
-            <p>{book.author}</p>
+          <div key={book.id} className="bookcard">
+            <p>{book.book_title}</p>
+            <p>{book.book_author}</p>
+            <p>{book.book_description}</p>
+            <p>added by: {book.user_id}</p>
           </div>
         );
       })}      

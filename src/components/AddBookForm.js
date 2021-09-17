@@ -5,8 +5,9 @@ function AddBookForm({ isAddBook, setIsAddBook, books, setBooks }) {
   const baseURL = "https://book-app-heroku-backend.herokuapp.com/";
 
   const [ formState, setFormState ] = useState({
-    title: "",
-    author: "",
+    book_title: "",
+    book_author: "",
+    book_description: "",
     tag_name: ""
   });
 
@@ -35,15 +36,17 @@ function AddBookForm({ isAddBook, setIsAddBook, books, setBooks }) {
   function handleSubmit(event) {
     event.preventDefault();
     const addingBook = {
-      title: formState.title,
-      author: formState.author,
+      book_title: formState.book_title,
+      book_author: formState.book_author,
+      book_description: formState.book_description,
       tag_name: formState.tag_name
     };
     addBook(addingBook);
     setIsAddBook(isAddBook => !isAddBook);
     setFormState({
-      title: "",
-      author: "",
+      book_title: "",
+      book_author: "",
+      book_description: "",
       tag_name: ""
     });
   }
@@ -53,10 +56,13 @@ function AddBookForm({ isAddBook, setIsAddBook, books, setBooks }) {
 
         <label>Title</label>
         <input type="text" onChange={handleEntryChange}     
-          name="title" value={formState.title} />
+          name="book_title" value={formState.book_title} />
 
         <label>Author(s)</label>
-        <input type="text" onChange={handleEntryChange} name="author" value={formState.author} />
+        <input type="text" onChange={handleEntryChange} name="book_author" value={formState.book_author} />
+
+        <label>Description</label>
+        <textarea onChange={handleEntryChange} name="book_description" value={formState.book_description} />
 
         <label>Tag(s)</label>
         <input type="text" onChange={handleEntryChange} name="tag_name" value={formState.tag_name} />
